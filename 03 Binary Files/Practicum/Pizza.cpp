@@ -129,7 +129,7 @@ void writeOrderListToFile(std::ofstream& ofs, const OrderList& list) {
 }
 
 void writeOrderListToFile(const char* fileName, const OrderList& list) {
-	std::ofstream ofs(fileName);
+	std::ofstream ofs(fileName,std::ios::binary);
 	writeOrderListToFile(ofs, list);
 	ofs.close();
 }
@@ -147,7 +147,7 @@ OrderList readOrderList(std::ifstream& ifs) {
 }
 
 OrderList readOrderList(const char* fileName) {
-	std::ifstream ifs(fileName);
+	std::ifstream ifs(fileName,std::ios::binary);
 	OrderList list=readOrderList(ifs);
 	ifs.close();
 	return list;
